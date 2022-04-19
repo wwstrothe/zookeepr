@@ -1,10 +1,12 @@
-const express = require('express');
-const { animals } = require('./data/animals');
 const fs = require('fs');
 const path = require('path');
+const express = require('express');
+const { animals } = require('./data/animals');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+// serves static files
+app.use(express.static('public'));
 // parse incoming string or array data
 app.use(express.urlencoded({ extend: true }));
 // parse incoming JSON data
@@ -57,7 +59,6 @@ function createNewAnimal(body, animalsArray) {
     path.join(__dirname, './data/animals.json'),
     JSON.stringify({ animals: animalsArray }, null, 2)
   );
-
   return animal;
 };
 
@@ -107,6 +108,25 @@ app.post('/api/animals', (req, res) => {
   const animal = createNewAnimal(req.body, animals); 
   res.json(animal);
   };
+});
+
+app.get('/', (req, res) => {
+  // sends index.html to be the / page for the site
+  res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+app.get("/animals", (req, res) => {
+  // sends animals.html to be the /animals page for the site
+  res.sendFile(path.join(__dirname, "./public/animals.html"));
+});
+
+app.get("/zookeepers", (req, res) => {
+  // sends zookeepers.html to be the /zookeepers page for the site
+  res.sendFile(path.join(__dirname, "./public/zookeepers.html"));
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 app.listen(PORT, () => {

@@ -101,35 +101,14 @@
       ]
     },
     {
-      "name": "Larry",
-      "species": "lemur",
+      "name": "Happy",
+      "species": "Pupper",
       "diet": "omnivore",
       "personalityTraits": [
-        "hungry",
-        "thirsty"
-      ],
-      "id": "10"
-    },
-    {
-      "name": "Titus",
-      "species": "tegu",
-      "diet": "omnivore",
-      "personalityTraits": [
-        "hungry",
+        "loving",
         "goofy"
       ],
-      "id": "11"
-    },
-    {
-      "name": "Kaa",
-      "species": "Ball Python",
-      "diet": "carnivore",
-      "personalityTraits": [
-        "sleepy",
-        "hungry",
-        "fat"
-      ],
-      "id": "12"
+      "id": "10"
     }
   ]
 }
