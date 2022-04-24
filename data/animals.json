@@ -109,6 +109,25 @@
         "goofy"
       ],
       "id": "10"
+    },
+    {
+      "name": "Penelope ",
+      "species": "Pupper",
+      "diet": "omnivore",
+      "personalityTraits": [
+        "zany",
+        "loving"
+      ],
+      "id": "11"
+    },
+    {
+      "name": "Kaa",
+      "species": "Ball Python",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "hungry"
+      ],
+      "id": "12"
     }
   ]
 }
