@@ -1,8 +1,7 @@
-const $displayArea = document.querySelector('#display-area');
 const $zookeeperForm = document.querySelector("#zookeeper-form");
+const $displayArea = document.querySelector("#display-area");
 
-
-const printResults = resultArr => {
+const printResults = (resultArr) => {
   console.log(resultArr);
 
   const animalHTML = resultArr.map(({ id, name, age, favoriteAnimal }) => {
@@ -11,15 +10,17 @@ const printResults = resultArr => {
     <div class="card p-3" data-id=${id}>
       <h4 class="text-primary">${name}</h4>
       <p>Age: ${age}<br/>
-      Favorite Animal: ${favoriteAnimal.substring(0, 1).toUpperCase() +
-        favoriteAnimal.substring(1)}<br/>
+      Favorite Animal: ${
+        favoriteAnimal.substring(0, 1).toUpperCase() +
+        favoriteAnimal.substring(1)
+      }<br/>
       </p>
     </div>
   </div>
     `;
   });
 
-  $displayArea.innerHTML = animalHTML.join('');
+  $displayArea.innerHTML = animalHTML.join("");
 };
 
 const getZookeepers = (formData = {}) => {
@@ -42,18 +43,19 @@ const getZookeepers = (formData = {}) => {
     });
 };
 
-const handleGetZookeeperSubmit = event => {
+const handleGetZookeepersSubmit = (event) => {
   event.preventDefault();
   const nameHTML = $zookeeperForm.querySelector('[name="name"]');
   const name = nameHTML.value;
 
   const ageHTML = $zookeeperForm.querySelector('[name="age"]');
-  const age =- ageHTML.value;
+  const age = ageHTML.value;
 
   const zookeeperObject = { name, age };
 
   getZookeepers(zookeeperObject);
 };
 
-$zookeeperForm.addEventListener('submit', handleGetZookeeperSubmit);
+$zookeeperForm.addEventListener("submit", handleGetZookeepersSubmit);
+
 getZookeepers();
